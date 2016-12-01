@@ -14,23 +14,27 @@ function human(health,mana,name) {
   this.alive = true
 }
 
-function baseHuman() {
-  return new human(100,100)
-}
-
-
 // Characters list
 var soldier = new human(150,0,"Soldier")
 var protagonist = new human(100,100,"Me")
 var archMage = new human(90,200,"ArchMage")
 
 // make a new creature
+<<<<<<< Updated upstream
 var harpy = {
   name: "Harpy",
   health: 100,
   mana: 100,
   race: "Harpy",
   type: "Humanoid",
+=======
+var gargoyle = {
+  name: "Gargoyle",
+  health: 100,
+  mana: 100,
+  race: "Gargoyle",
+  type: "Construct",
+>>>>>>> Stashed changes
   flying: true,
   inventory: [],
   mainWeapon: claw = new weapon("Claw",30,"cutting",false),
@@ -62,6 +66,7 @@ var shatter = {
   manaCost: 50,
   level: 3,
   cast: function(target) {
+<<<<<<< Updated upstream
     spellCast()
     console.log(`${target.name}'s weapon has been shattered.`)
   },
@@ -69,6 +74,33 @@ var shatter = {
 }
 
 
+=======
+    var weapon = target.mainWeapon
+    target.mainWeapon = {};
+    console.log(`${target.name}'s ${weapon.name} has been shattered.`);
+  },
+  varname: "shatter",
+  description: "Shatter's the target's weapon, destroying it entirely."
+}
+
+var float = new spell("Float",
+                      40,
+                      "Alteration",
+                      function(target) {
+  target.flying = true;
+  console.log(`${target.name} is now flying.`);
+},
+                     "Allows the user to fly.")
+
+var anchor = new spell("Anchor",
+                      40,
+                      "Alteration",
+                      function(target) {
+  target.flying = false;
+  console.log(`${target.name} can no longer fly.`)
+},
+                      "Stops the user from flying and brings them to the ground.")
+>>>>>>> Stashed changes
 
 
 
